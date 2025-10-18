@@ -4,7 +4,7 @@
   <section class="card">
     <h2>Painel de atividades{% if name %}, {{ name }}{% endif %}</h2>
     <p class="muted">Análise mensal das suas atividades físicas.</p>
-    <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap: .75rem;">
+    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: .75rem;">
       <div class="card" style="padding:1rem;">
         <div class="muted">Total de atividades</div>
         <div style="font-size:1.5rem;">{{ total_activities }}</div>
@@ -23,7 +23,7 @@
   <section class="card" style="margin-top:1rem;">
     <h3>Distribuição por categoria ({{ month_key }})</h3>
     {% if category_labels and category_labels|length > 0 %}
-      <div style="display:grid; grid-template-columns: repeat(2, 1fr); gap: .75rem;">
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: .75rem;">
         <div>
           <canvas id="chartCounts" height="140"></canvas>
         </div>
