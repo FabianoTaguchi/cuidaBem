@@ -2,28 +2,9 @@
 
 {% block content %}
   <section class="card">
-    <h2>Dashboard{% if name %}, {{ name }}{% endif %}</h2>
-    <p class="muted">Resumo das suas medições de glicemia.</p>
-    <form method="get" action="{{ url_for('dashboard') }}" style="display:flex; gap:.5rem; align-items:flex-end; margin:.5rem 0;">
-      <div class="form-group" style="margin:0;">
-        <label for="month">Mês fechado</label>
-        <input type="month" id="month" name="month" value="{{ month_key }}">
-      </div>
-      <button class="btn primary" type="submit">Filtrar</button>
-    </form>
+    <h2>Painel de medições{% if name %}, {{ name }}{% endif %}</h2>
+    <p class="muted">Resumo e tendências das suas medições de glicemia.</p>
     <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: .75rem;">
-      <div class="card" style="padding:1rem;">
-        <div class="muted">Última medição</div>
-        <div style="font-size:1.5rem;">{% if latest_value is not none %}{{ '%.1f'|format(latest_value) }} mg/dL{% else %}—{% endif %}</div>
-      </div>
-      <div class="card" style="padding:1rem;">
-        <div class="muted">Média (7 dias)</div>
-        <div style="font-size:1.5rem;">{% if avg_7d is not none %}{{ '%.1f'|format(avg_7d) }} mg/dL{% else %}—{% endif %}</div>
-      </div>
-      <div class="card" style="padding:1rem;">
-        <div class="muted">Mín / Máx</div>
-        <div style="font-size:1.5rem;">{% if min_val is not none %}{{ '%.1f'|format(min_val) }} / {{ '%.1f'|format(max_val) }}{% else %}—{% endif %}</div>
-      </div>
       <div class="card" style="padding:1rem;">
         <div class="muted">Total de medições</div>
         <div style="font-size:1.5rem;">{{ count }}</div>
@@ -91,7 +72,7 @@
       options: {
         responsive: true,
         plugins: {
-          legend: { labels: { color: '#e5e7eb' } }
+          legend: { labels: { color: '#000000' } }
         },
         scales: {
           x: { ticks: { color: '#94a3b8' } },
@@ -118,7 +99,7 @@
         },
         options: {
           responsive: true,
-          plugins: { legend: { labels: { color: '#e5e7eb' } } },
+          plugins: { legend: { labels: { color: '#000000' } } },
           scales: {
             x: { ticks: { color: '#94a3b8' } },
             y: { ticks: { color: '#94a3b8' }, beginAtZero: false }
@@ -145,7 +126,7 @@
         },
         options: {
           responsive: true,
-          plugins: { legend: { labels: { color: '#e5e7eb' } } },
+          plugins: { legend: { labels: { color: '#000000' } } },
           scales: {
             x: { ticks: { color: '#94a3b8' } },
             y: { ticks: { color: '#94a3b8' }, beginAtZero: false }
