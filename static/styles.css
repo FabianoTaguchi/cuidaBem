@@ -377,3 +377,18 @@ body { font-size: 1.05rem; }
   font-size: .85rem;
   line-height: 1.2;
 }
+/* Ajustes para navbar Bootstrap */
+.navbar-brand { color: var(--accent); font-weight: 700; }
+.navbar-brand:hover { filter: brightness(1.1); }
+.navbar .nav-link { color: var(--text); }
+.navbar .nav-link:hover { color: var(--accent); }
+
+/* Grupos de radio responsivos */
+.radio-group { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: .5rem; }
+
+/* Responsividade geral em telas pequenas */
+@media (max-width: 576px) {
+  .welcome-msg { display: none; }
+  .card { padding: 1rem; }
+  .header-wrap { flex-wrap: wrap; gap: .5rem; }
+}

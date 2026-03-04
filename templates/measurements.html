@@ -40,29 +40,31 @@
   <section class="card" style="margin-top:1rem;">
     <h2>Últimas medições</h2>
     {% if entries and entries|length > 0 %}
-      <table style="width:100%; border-collapse: collapse;">
-        <thead>
-          <tr>
-            <th style="text-align:left; padding:.5rem; border-bottom:1px solid #1f2937;">Data/Hora</th>
-            <th style="text-align:left; padding:.5rem; border-bottom:1px solid #1f2937;">Nível (mg/dL)</th>
-            <th style="text-align:left; padding:.5rem; border-bottom:1px solid #1f2937;">Momento</th>
-            <th style="text-align:left; padding:.5rem; border-bottom:1px solid #1f2937;">Observações</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for e in entries %}
+      <div class="table-responsive">
+        <table class="table table-striped align-middle">
+          <thead class="table-light">
             <tr>
-              <td style="padding:.5rem; border-bottom:1px solid #1f2937;">{{ e['measured_at'] }}</td>
-              <td style="padding:.5rem; border-bottom:1px solid #1f2937;">{{ '%.1f'|format(e['glucose_level']) }}</td>
-              <td style="padding:.5rem; border-bottom:1px solid #1f2937;">
-                {% set ctx = e['measurement_context'] %}
-                {% if ctx == 'em_jejum' %}Em Jejum{% elif ctx == 'antes_refeicao' %}Antes da Refeição{% elif ctx == '2h_pos_refeicao' %}2h após a refeição{% elif ctx == 'antes_dormir' %}Antes de dormir{% else %}-{% endif %}
-              </td>
-              <td style="padding:.5rem; border-bottom:1px solid #1f2937;">{{ e['notes'] or '-' }}</td>
+              <th scope="col">Data/Hora</th>
+              <th scope="col">Nível (mg/dL)</th>
+              <th scope="col">Momento</th>
+              <th scope="col">Observações</th>
             </tr>
-          {% endfor %}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {% for e in entries %}
+              <tr>
+                <td>{{ e['measured_at'] }}</td>
+                <td>{{ '%.1f'|format(e['glucose_level']) }}</td>
+                <td>
+                  {% set ctx = e['measurement_context'] %}
+                  {% if ctx == 'em_jejum' %}Em Jejum{% elif ctx == 'antes_refeicao' %}Antes da Refeição{% elif ctx == '2h_pos_refeicao' %}2h após a refeição{% elif ctx == 'antes_dormir' %}Antes de dormir{% else %}-{% endif %}
+                </td>
+                <td>{{ e['notes'] or '-' }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
     {% else %}
       <p class="muted">Nenhuma medição registrada ainda.</p>
     {% endif %}

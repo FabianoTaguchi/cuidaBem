@@ -2,7 +2,7 @@
 
  {% block content %}
   {% if is_logged_in %}
-  <section style="display:grid; grid-template-columns: repeat(3, 1fr); gap: .75rem;">
+  <section style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: .75rem;">
     <!-- Medições: quadro azul com texto branco -->
     <div class="card feature-blue clickable" data-href="{{ url_for('measurements') }}">
       <div class="feature-head">
@@ -64,7 +64,7 @@
     })();
   </script>
   {% else %}
-  <section style="display:grid; grid-template-columns: repeat(2, 1fr); gap: .75rem;">
+  <section style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: .75rem;">
     <div class="card">
       <div class="feature-head">
         <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">

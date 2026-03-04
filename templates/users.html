@@ -6,7 +6,7 @@
     {% if users and users|length > 0 %}
       <ul style="list-style:none; padding:0; margin:0;">
         {% for u in users %}
-          <li class="card" style="padding:.6rem .75rem; margin:.5rem 0; display:flex; align-items:center; justify-content:space-between; gap:.75rem;">
+          <li class="card" style="padding:.6rem .75rem; margin:.5rem 0; display:flex; align-items:center; justify-content:space-between; gap:.75rem; flex-wrap:wrap;">
             <div style="display:flex; align-items:center; gap:.5rem;">
               <span>{{ u['name'] }}</span>
               <span class="status-badge {{ 'active' if u['active'] else 'inactive' }}">{{ 'Ativo' if u['active'] else 'Inativo' }}</span>
