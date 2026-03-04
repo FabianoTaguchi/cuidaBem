@@ -79,8 +79,8 @@ def init_db():
     # Garantir diretório do banco antes de abrir conexão
     try:
         os.makedirs(os.path.dirname(DB_PATH), exist_ok=True)
-    except Exception:
-        pass
+    except Exception as e:
+        print(f"Erro ao criar diretório do banco: {e}")
     conn = get_db_connection()
     conn.execute(
         """
